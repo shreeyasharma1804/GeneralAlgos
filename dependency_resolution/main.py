@@ -15,7 +15,7 @@ class dependency_resolution:
         else:
             self.indegrees[a] = 1
 
-    def mock_install(self, node, visited):
+    def resolve_dependencies(self, node, visited):
         if(node in visited):
             return
         if(node not in self.dependency_graph):
@@ -23,7 +23,7 @@ class dependency_resolution:
             return
         for nei in self.dependency_graph[node]:
             visited[node] = 1
-            self.mock_install(nei, visited)
+            self.resolve_dependencies(nei, visited)
 
 graph = dependency_resolution()
 graph.add_dependency("B", "A")
@@ -38,5 +38,5 @@ graph.add_dependency("H", "E")
 graph.add_dependency("I", "G")
 
 all_dependencies = {}
-graph.mock_install('H', all_dependencies)
+graph.resolve_dependencies('H', all_dependencies)
 print(all_dependencies)
