@@ -1,0 +1,12 @@
+martin:
+  name: Martin D'vloper
+  job: Developer
+  Address:
+    Country: XYZ
+    City:
+      State: XYZ
+  Hobby:
+    - lala
+    - anana
+ya: 
+  y: yaya
